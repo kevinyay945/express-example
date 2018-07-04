@@ -16,20 +16,15 @@ router.get('/', async function(req, res) {
 router.get('/api/users/:user_name/tasks', async function (req, res) {
   let username = req.params.user_name;
   let user = await models.User.findOne({
-    where: {
-      username
-    }
-  });
-  let UserId = user.id;
-  let tasks = await models.Task.findAll({
-    where: {
-      UserId
-    }
+    where: {username}
   });
 
-  res.json({
-    tasks
+  let UserId = user.id;
+  let tasks = await models.Task.findAll({
+    where: {UserId}
   });
+
+  res.json({tasks});
 
 });
 
@@ -37,19 +32,16 @@ router.get('/api/users/:user_name/tasks', async function (req, res) {
 router.post('/api/users/:user_name/tasks/create', async function (req, res) {
   let username = req.params.user_name;
   let user = await models.User.findOne({
-    where: {
-      username
-    }
+    where: {username}
   });
+
+  let title = req.body.title;
   let task = await models.Task.create({
-    title: req.body.title,
+    title,
     UserId: user.id
   })
 
-  res.json({
-    task
-  });
-
+  res.json({task});
 });
 
 module.exports = router;
