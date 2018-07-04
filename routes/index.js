@@ -35,7 +35,6 @@ router.get('/api/users/:user_name/tasks', async function (req, res) {
 
 
 router.post('/api/users/:user_name/tasks/create', async function (req, res) {
-  console.log("req.body", req.body);
   let username = req.params.user_name;
   let user = await models.User.findOne({
     where: {
