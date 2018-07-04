@@ -4,7 +4,7 @@ var expect = require('expect.js');
 
 describe('models/task', function () {
   before(async function () {
-      await require('../../models').sequelize.sync();
+    await require('../../models').sequelize.sync();
   });
 
   beforeEach(function () {

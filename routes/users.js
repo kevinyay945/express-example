@@ -33,6 +33,7 @@ router.post('/:user_id/tasks/create', async function (req, res) {
   res.redirect('/');
 });
 
+
 router.get('/:user_id/tasks/:task_id/destroy', async function (req, res) {
   
   await models.Task.destroy({
@@ -44,6 +45,7 @@ router.get('/:user_id/tasks/:task_id/destroy', async function (req, res) {
   res.redirect('/');
   
 });
+
 
 
 module.exports = router;

@@ -13,5 +13,44 @@ router.get('/', async function(req, res) {
   });
 
 });
+router.get('/api/users/:user_name/tasks', async function (req, res) {
+  let username = req.params.user_name;
+  let user = await models.User.findOne({
+    where: {
+      username
+    }
+  });
+  let UserId = user.id;
+  let tasks = await models.Task.findAll({
+    where: {
+      UserId
+    }
+  });
+
+  res.json({
+    tasks
+  });
+
+});
+
+
+router.post('/api/users/:user_name/tasks/create', async function (req, res) {
+  console.log("req.body", req.body);
+  let username = req.params.user_name;
+  let user = await models.User.findOne({
+    where: {
+      username
+    }
+  });
+  let task = await models.Task.create({
+    title: req.body.title,
+    UserId: user.id
+  })
+
+  res.json({
+    task
+  });
+
+});
 
 module.exports = router;
