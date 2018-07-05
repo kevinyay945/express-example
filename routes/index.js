@@ -44,4 +44,18 @@ router.post('/api/users/:user_name/tasks/create', async function (req, res) {
   res.json({task});
 });
 
+router.put('/api/task/:id', async function (req, res) {
+  let id = req.params.id;
+  let completed = req.body.completed;
+
+  let task = await models.Task.findOne({
+    where: {id}
+  });
+
+  task.completed = completed;
+  task = await task.save();
+
+  res.json({task});
+});
+
 module.exports = router;
