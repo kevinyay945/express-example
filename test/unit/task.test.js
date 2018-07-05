@@ -19,9 +19,11 @@ describe('models/task', function () {
       });
       let task = await this.Task.create({
         title: 'a title',
-        UserId: user.id
+        UserId: user.id,
+        completed: true
       });
       expect(task.title).to.equal('a title');
+      expect(task.completed).to.equal(true);
 
     });
   });
