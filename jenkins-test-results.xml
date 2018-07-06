@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.07100000000000001" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2018-07-06T04:14:50" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="user creation page" timestamp="2018-07-06T04:14:50" tests="2" file="/Users/spooky/projects/test/express-example/test/integration/user-creation-api.test.js" failures="0" time="0.07100000000000001">
+    <testcase name="user creation page 透過 api 取得特定 user 之所有 task list 資料" time="0.054" classname="透過 api 取得特定 user 之所有 task list 資料">
+    </testcase>
+    <testcase name="user creation page 透過 api 新增特定 user 之 task 資料" time="0.017" classname="透過 api 新增特定 user 之 task 資料">
+    </testcase>
+  </testsuite>
+</testsuites>
