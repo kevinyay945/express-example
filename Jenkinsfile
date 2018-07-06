@@ -18,7 +18,12 @@ pipeline {
     }
     stage('run test') {
       steps {
-        sh 'npm run test'
+        sh 'npm run test-jenkins'
+      }
+    }
+    stage('test report') {
+      steps {
+        junit(testResults: 'jenkins-test-results.xml', allowEmptyResults: true)
       }
     }
   }
