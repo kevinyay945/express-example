@@ -6,6 +6,16 @@ pipeline {
 
   }
   stages {
+    stage('run install') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    stage('run migration') {
+      steps {
+        sh 'node_modules/.bin/sequelize db:migrate'
+      }
+    }
     stage('run test') {
       steps {
         sh 'npm run test'
